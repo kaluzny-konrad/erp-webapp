@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Erp.Tests", "Erp.Tests\Erp.Tests.csproj", "{E3329D0D-73D7-4989-8B2A-92C33356DD55}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErpService", "ErpService\ErpService.csproj", "{5905183F-0FDE-4B6E-A1A5-E66AC468527A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErpWeb", "ErpWeb\ErpWeb.csproj", "{AB75BFDB-F4F6-43BE-A415-C3AB251FA114}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3329D0D-73D7-4989-8B2A-92C33356DD55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3329D0D-73D7-4989-8B2A-92C33356DD55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3329D0D-73D7-4989-8B2A-92C33356DD55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3329D0D-73D7-4989-8B2A-92C33356DD55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5905183F-0FDE-4B6E-A1A5-E66AC468527A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5905183F-0FDE-4B6E-A1A5-E66AC468527A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5905183F-0FDE-4B6E-A1A5-E66AC468527A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5905183F-0FDE-4B6E-A1A5-E66AC468527A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB75BFDB-F4F6-43BE-A415-C3AB251FA114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB75BFDB-F4F6-43BE-A415-C3AB251FA114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB75BFDB-F4F6-43BE-A415-C3AB251FA114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB75BFDB-F4F6-43BE-A415-C3AB251FA114}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA72191D-7778-49A7-999F-4EC30F537E81}
+	EndGlobalSection
+EndGlobal
