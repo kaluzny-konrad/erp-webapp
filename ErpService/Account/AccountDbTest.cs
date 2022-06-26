@@ -1,8 +1,8 @@
-﻿namespace ErpService
+﻿namespace ErpService.Account
 {
     public class AccountDbTest : AccountDb, IAccountDb
     {
-        private AccountDbTest() 
+        private AccountDbTest()
         {
             _accounts = new List<Account>();
         }

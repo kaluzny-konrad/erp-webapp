@@ -1,8 +1,8 @@
-﻿namespace ErpService
+﻿namespace ErpService.Account
 {
     public class AccountManager
     {
-        private AccountManager(IAccountDb accountDb) 
+        private AccountManager(IAccountDb accountDb)
         {
             _accountDb = accountDb;
         }
@@ -18,10 +18,23 @@
 
         public int NumOfAccounts => _accountDb.GetAccountCount();
 
-        public void NewAccount(string username, string password)
+        public bool NewAccount(string username, string password)
         {
             if (!_accountDb.IsActive(username))
-                _accountDb.AddAccount(username, password);
+                return _accountDb.AddAccount(username, password);
+            return false;
+        }
+
+        public bool LoginToAccount(string email, string password)
+        {
+            var id = _accountDb.GetAccountId(email);
+            if (id != null)
+            {
+                var account = _accountDb.GetAccount((int)id);
+                if (account != null)
+                    return account.Password == password;
+            }
+            return false;
         }
 
         public Account? GetAccount(string username)

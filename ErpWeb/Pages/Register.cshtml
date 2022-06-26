@@ -1,4 +1,18 @@
 ﻿@page
 @model ErpWeb.Pages.RegisterModel
 @{
+    ViewData["Title"] = "Rejestracja";
 }
+
+<div class="text-center">
+    <h1 class="display-4">Zarejestruj się</h1>
+
+    <form method="post">
+        E-mail: <input type="email" asp-for="Email" > 
+        Hasło: <input type="password" asp-for="Password"> 
+        <input type="submit" value="Zarejestruj">
+    </form>
+
+    <p><a asp-page="/Login">Lub zaloguj do istniejącego konta.</a></p>
+</div>
+

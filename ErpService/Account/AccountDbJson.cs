@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace ErpService
+namespace ErpService.Account
 {
     public class AccountDbJson : AccountDb, IAccountDb
     {
@@ -17,9 +17,7 @@ namespace ErpService
         protected override List<Account> GetAccounts()
         {
             List<Account> accounts;
-            if(!File.Exists(FilePath))
-                return new List<Account>();
-            var data = File.ReadAllText(FilePath);
+            var data = DbJsonSaver.GetData(fileName);
             try
             {
                 accounts = JsonSerializer.Deserialize(data,
@@ -37,28 +35,10 @@ namespace ErpService
         protected override bool SaveAccountsData(List<Account> accounts)
         {
             string json = JsonSerializer.Serialize(accounts);
-            Directory.CreateDirectory(DirectoryPath);
-            File.WriteAllText(FilePath, json);
+            DbJsonSaver.SaveData(json, fileName);
             return true;
         }
 
-        private static string DirectoryPath
-        {
-            get
-            {
-                var dir = Environment.CurrentDirectory;
-                var folder = @"LocalDb\";
-                return Path.Combine(dir, folder);
-            }
-        }
-
-        private static string FilePath
-        {
-            get
-            {
-                string fileName = "JsonAccountsData.txt";
-                return Path.Combine(DirectoryPath, fileName);
-            }
-        }
+        private static string fileName = "JsonAccountsData.txt";
     }
 }

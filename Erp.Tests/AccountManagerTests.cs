@@ -1,4 +1,4 @@
-using ErpService;
+using ErpService.Account;
 
 namespace Erp.Tests;
 
@@ -28,6 +28,24 @@ public class AccountManagerTests
     }
 
     [Fact]
+    public void UsingAccountManager_LoginToNewAccount()
+    {
+        // Arrange
+        var accountDb = AccountDbTest.GetDb();
+        var accountManager = AccountManager.GetManager(accountDb);
+
+        var expName = "user@test.pl";
+        var expPassword = "password";
+        accountManager.NewAccount(expName, expPassword);
+
+        // Act
+        var isLogged = accountManager.LoginToAccount(expName, expPassword);
+
+        // Assert
+        Assert.True(isLogged);
+    }
+
+    [Fact]
     public void UsingAccountManager_DontCreateAccountDuplicate()
     {
         // Arrange
@@ -35,13 +53,15 @@ public class AccountManagerTests
         var accountManager = AccountManager.GetManager(accountDb);
 
         var name = "Test";
-        accountManager.NewAccount(name, "test1");
+        var acResultNew = accountManager.NewAccount(name, "test1");
 
         // Act
-        accountManager.NewAccount(name, "test2");
+        var acResultDuplicate = accountManager.NewAccount(name, "test2");
 
         // Assert
         Assert.Equal(1, accountManager.NumOfAccounts);
+        Assert.True(acResultNew);
+        Assert.False(acResultDuplicate);
     }
 
     [Fact]

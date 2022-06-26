@@ -1,4 +1,4 @@
-﻿namespace ErpService
+﻿namespace ErpService.Account
 {
     public abstract class AccountDb
     {

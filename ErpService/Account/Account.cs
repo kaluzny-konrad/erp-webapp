@@ -1,4 +1,4 @@
-﻿namespace ErpService;
+﻿namespace ErpService.Account;
 public class Account
 {
     public Account(int id, string name, string password)

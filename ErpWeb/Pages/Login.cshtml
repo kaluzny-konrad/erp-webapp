@@ -1,0 +1,17 @@
+﻿@page
+@model ErpWeb.Pages.LoginModel
+@{
+    ViewData["Title"] = "Logowanie";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Zaloguj się</h1>
+
+    <form method="post">
+        E-mail: <input type="email" asp-for="Email" > 
+        Hasło: <input type="password" asp-for="Password"> 
+        <input type="submit" value="Zaloguj">
+    </form>
+
+    <p><a asp-page="/Register">Lub zarejestruj nowe konto.</a></p>
+</div>

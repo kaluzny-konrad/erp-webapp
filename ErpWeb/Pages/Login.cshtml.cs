@@ -4,18 +4,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ErpWeb.Pages
 {
-    public class RegisterModel : PageModel
+    public class LoginModel : PageModel
     {
         [BindProperty]
         public string? Email { get; set; }
 
         [BindProperty]
         public string? Password { get; set; }
-        public string? Msg { get; private set; }
 
-        private readonly ILogger<RegisterModel> _logger;
+        public string? Msg { get; set; }
 
-        public RegisterModel(ILogger<RegisterModel> logger)
+        private readonly ILogger<LoginModel> _logger;
+
+        public LoginModel(ILogger<LoginModel> logger)
         {
             _logger = logger;
         }
@@ -27,10 +28,10 @@ namespace ErpWeb.Pages
         public IActionResult OnPost()
         {
             if (Email != null && Password != null)
-                if (RegisterController.RegisterUser(Email, Password))
-                    return RedirectToPage("RegisterConfirmation", 
-                        new { email = Email });
-            Msg = "B³êdne dane logowania lub konto o takim e-mailu ju¿ istnieje.";
+                if (LoginController.LoginUser(Email, Password))
+                    return RedirectToPage("Index",
+                        new { isLogged = true, email = Email });
+            Msg = "B³êdne dane logowania";
             return Page();
         }
     }

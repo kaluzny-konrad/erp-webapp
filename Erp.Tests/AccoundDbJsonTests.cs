@@ -1,4 +1,4 @@
-﻿using ErpService;
+﻿using ErpService.Account;
 
 namespace Erp.Tests;
 
