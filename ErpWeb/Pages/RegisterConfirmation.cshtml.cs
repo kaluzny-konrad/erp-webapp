@@ -5,8 +5,11 @@ namespace ErpWeb.Pages
 {
     public class RegisterConfirmationModel : PageModel
     {
-        public void OnGet()
+        public string? Email { get; private set; }
+
+        public void OnGet(string email)
         {
+            Email = email;
         }
     }
 }

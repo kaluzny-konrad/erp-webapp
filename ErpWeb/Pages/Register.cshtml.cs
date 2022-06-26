@@ -28,8 +28,11 @@ namespace ErpWeb.Pages
         {
             if (Email != null && Password != null)
                 if (RegisterController.RegisterUser(Email, Password))
-                    return RedirectToPage("RegisterConfirmation", 
+                {
+                    _logger.LogInformation("User registered.");
+                    return RedirectToPage("RegisterConfirmation",
                         new { email = Email });
+                }
             Msg = "B³êdne dane logowania lub konto o takim e-mailu ju¿ istnieje.";
             return Page();
         }
