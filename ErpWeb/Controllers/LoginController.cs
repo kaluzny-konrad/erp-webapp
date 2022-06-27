@@ -1,24 +1,41 @@
 ﻿using ErpService.Account;
+using ErpWeb.Pages;
+using ErpWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ErpWeb.Controllers
 {
-    public class LoginController : Controller
+    public interface ILogInController
     {
-        public IActionResult Index()
+        bool LogIn(string email, string password);
+        void LogOut();
+    }
+
+    public class LoginController : Controller, ILogInController
+    {
+        private readonly IUserService _userService;
+
+        public LoginController(IUserService userService)
         {
-            return View();
+            _userService = userService;
         }
 
-        public static bool LoginUser(string email, string password)
+        public bool LogIn(string email, string password)
         {
-            if (email != null && password != null)
+            var accountDb = AccountDbJson.GetDb();
+            var accountManager = AccountManager.GetManager(accountDb);
+            if (accountManager.LoginToAccount(email, password))
             {
-                var accountDb = AccountDbJson.GetDb();
-                var accountManager = AccountManager.GetManager(accountDb);
-                return accountManager.LoginToAccount(email, password);
+                _userService.SetEmail(email);
+                return true;
             }
             return false;
+        }
+
+        public void LogOut()
+        {
+            if (_userService.IsLoggedIn())
+                _userService.SetEmail("");
         }
     }
 }

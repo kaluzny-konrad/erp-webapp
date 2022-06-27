@@ -1,15 +1,19 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using ErpWeb.Services;
 
-namespace ErpWeb.Pages
+namespace ErpWeb.Pages;
+
+public class RegisterConfirmationModel : BasePage
 {
-    public class RegisterConfirmationModel : PageModel
-    {
-        public string? Email { get; private set; }
+    public string? Email { get; private set; }
 
-        public void OnGet(string email)
-        {
-            Email = email;
-        }
+    public RegisterConfirmationModel(
+        ILogger<BasePage> logger,
+        IHttpContextAccessor httpContextAccessor,
+        IUserService userService)
+    : base(logger, httpContextAccessor, userService) { }
+
+    public void OnGet(string email)
+    {
+        Email = email;
     }
 }

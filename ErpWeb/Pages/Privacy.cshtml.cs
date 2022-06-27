@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ErpWeb.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ErpWeb.Pages;
 
-public class PrivacyModel : PageModel
+public class PrivacyModel : BasePage
 {
-    private readonly ILogger<PrivacyModel> _logger;
 
-    public PrivacyModel(ILogger<PrivacyModel> logger)
-    {
-        _logger = logger;
-    }
+    public PrivacyModel(
+        ILogger<BasePage> logger,
+        IHttpContextAccessor httpContextAccessor,
+        IUserService userService)
+    : base(logger, httpContextAccessor, userService) { }
 
     public void OnGet()
     {
