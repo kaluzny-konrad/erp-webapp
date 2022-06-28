@@ -18,7 +18,7 @@ namespace ErpWeb.Pages
             _loginController = new LoginController(_userService);
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnPostLogout()
         {
             if (_userService.IsLoggedIn())
                 _loginController.LogOut();

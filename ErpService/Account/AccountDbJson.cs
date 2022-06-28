@@ -16,7 +16,7 @@ namespace ErpService.Account
 
         protected override List<Account> GetAccounts()
         {
-            List<Account> accounts;
+            List<Account>? accounts;
             var data = DbJsonSaver.GetData(fileName);
             try
             {

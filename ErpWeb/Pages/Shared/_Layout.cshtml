@@ -22,14 +22,31 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                        
                         @if ((bool)@Model.IsLogged)
                         {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/LogOut">Wyloguj się</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Account">Konto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Warehouse">Magazyn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Production">Produkcja</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Supply">Zaopatrzenie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Services">Usługi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Logistic">Logistyka</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Sale">Sprzedaż</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/HR">HR</a>
                         </li>
                         }
                         else
@@ -51,7 +68,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - ErpWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2022 - ErpWeb
         </div>
     </footer>
 
